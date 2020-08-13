@@ -2,7 +2,7 @@ import datetime
 import discord
 from discord.ext import commands
 
-import ChatHandler
+from ChatHandler import ChatHandler
 
 PREFIX = "!"
 INFO_EMBED_URL = "https://google.com"
@@ -35,6 +35,10 @@ async def info(ctx):
 @client.command(aliases=['prefix'])
 async def change_prefix(ctx, *, prefix):
     client.command_prefix = prefix
+
+    global PREFIX
+    PREFIX = prefix
+
     print("Changed Prefix to", prefix)
 
 # Events
